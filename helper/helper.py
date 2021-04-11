@@ -4,6 +4,9 @@ from qiskit import *
 def random_number_generator(num_qubits):
     """
     Generate and return a list of random numbers. 
+    
+    Not exactly as discussed in https://www.nature.com/articles/s41598-019-56706-2 as I made modifications. 
+    Also there are lots of flaws for this random number generator without correct implementation. 
     """
     n = num_qubits
     
@@ -37,6 +40,6 @@ def run_for_result(qc, backend=None):
         backend = backend
     
     results = backend.run(qobj).result()
-    answer = results.get_counts()
+    answer = results.get_counts()  # Counts retrieval. 
     
     return answer
